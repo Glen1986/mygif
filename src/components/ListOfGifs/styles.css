@@ -1,0 +1,22 @@
+:root {
+    --result-columns: 2;
+}
+.ListOfGifs {
+    column-count: var(--result-columns);
+}
+
+@media (min-width: 300px) {
+    :root {
+        --result-columns: 1;
+    }
+}
+@media (min-width: 600px) {
+    :root {
+        --result-columns: 2;
+    }
+}
+@media (min-width: 900px) {
+    :root {
+        --result-columns: 3;
+    }
+}
