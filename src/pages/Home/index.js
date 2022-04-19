@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'wouter'
+import { useLocation } from 'wouter'
 import ListOfGifs from 'components/ListOfGifs'
-import { useGifs } from 'hooks/use'
-import Spiner from 'components/Spiner'
+import { useGifs } from 'hooks/useGifs'
+import TrendingSearches from 'components/TrendinSearches'
 
 export default function Home() {
     const [keyword, setKeyword] = useState('')
     const [, pushLocation] = useLocation()
-    const { gifs, loading } = useGifs()
+    const { gifs } = useGifs()
 
     const handleChange = (evt) => {
         setKeyword(evt.target.value)
@@ -27,8 +27,15 @@ export default function Home() {
                 <input type="submit" value="search" />
             </form>
             <br />
-            <litle className="App-title">ultima busqueda</litle>
-            {loading ? <Spiner /> : <ListOfGifs gifs={gifs} />}
+            <div className="App-main">
+                <div className="App-results">
+                    <h3 className="App-title">ultima busqueda</h3>
+                    <ListOfGifs gifs={gifs} />
+                </div>
+                <div className="App-category">
+                    <TrendingSearches />
+                </div>
+            </div>
         </>
     )
 }
