@@ -1,13 +1,13 @@
 import React from 'react'
 import Gif from '../Gif'
 import './styles.css'
-function ListOfGifs({ gifs }) {
+
+export default function ListOfGifs({ gifs }) {
     return (
         <div className="ListOfGifs">
             {gifs.map(({ id, title, url }) => (
-                <Gif key={id} title={title} id={id} url={url} />
+                <Gif id={id} key={id} title={title} url={url} />
             ))}
         </div>
     )
 }
-export default React.memo(ListOfGifs)

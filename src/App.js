@@ -13,7 +13,7 @@ function App() {
             <div className="App">
                 <section className="App-content">
                     <Link to="/">
-                        <h1>App</h1>
+                        <h1 className="App-logo">App</h1>
                     </Link>
                     <GifsContextProvider>
                         <Route
@@ -22,6 +22,10 @@ function App() {
                         />
                         <Route path="/gif/:id" component={Detail} />
                         <Route path="/" component={Home} />
+                        <Route
+                            component={() => <h1>404 ERROR :(</h1>}
+                            path="/404"
+                        />
                     </GifsContextProvider>
                 </section>
             </div>
